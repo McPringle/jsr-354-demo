@@ -1,0 +1,10 @@
+.DS_Store
+.gradle
+.idea
+.settings
+.classpath
+.project
+build
+jsr-354-demo.iml
+nb-configuration.xml
+src/main/resources/rebel.xml
