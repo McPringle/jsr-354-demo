@@ -4,6 +4,7 @@
 .settings
 .classpath
 .project
+.resourceCache
 build
 jsr-354-demo.iml
 nb-configuration.xml
