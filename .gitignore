@@ -8,4 +8,5 @@
 build
 jsr-354-demo.iml
 nb-configuration.xml
+out
 src/main/resources/rebel.xml
