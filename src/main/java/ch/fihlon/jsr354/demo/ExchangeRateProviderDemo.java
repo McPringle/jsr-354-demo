@@ -39,10 +39,12 @@ public class ExchangeRateProviderDemo extends AbstractRateProvider {
             .set("providerDescription", "My really cool own exchange rate provider implementation.")
             .build();
 
+    @SuppressWarnings("unused")
     public ExchangeRateProviderDemo() {
         super(CONTEXT);
     }
 
+    @SuppressWarnings("unused")
     public ExchangeRateProviderDemo(final ProviderContext providerContext) {
         super(providerContext);
     }
