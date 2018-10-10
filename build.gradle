@@ -17,7 +17,7 @@
  */
 
 group 'ch.fihlon.jsr-354'
-version "$jsr354demoVersion"
+version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 
@@ -30,8 +30,8 @@ repositories {
 
 dependencies {
     compile (
-            "javax.money:money-api:$moneyApiVersion",
-            "org.javamoney:moneta:$monetaVersion"
+            'javax.money:money-api:1.0.3',
+            'org.javamoney:moneta:1.3'
     )
 }
 
