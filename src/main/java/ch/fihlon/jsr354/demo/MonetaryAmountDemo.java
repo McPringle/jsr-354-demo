@@ -17,43 +17,39 @@
  */
 package ch.fihlon.jsr354.demo;
 
-import org.javamoney.moneta.FastMoney;
-import org.javamoney.moneta.Money;
-
-import javax.money.CurrencyUnit;
+import java.util.Locale;
 import javax.money.Monetary;
 import javax.money.MonetaryAmount;
-import javax.money.MonetaryAmountFactory;
-import javax.money.MonetaryAmountFactoryQuery;
 import javax.money.MonetaryAmountFactoryQueryBuilder;
-import java.util.Locale;
+import org.javamoney.moneta.FastMoney;
+import org.javamoney.moneta.Money;
 
 public class MonetaryAmountDemo {
 
     public static void main(final String... args) {
-        final CurrencyUnit brl = Monetary.getCurrency("BRL");
-        final MonetaryAmount brlAmount = Money.of(120, brl);
+        final var brl = Monetary.getCurrency("BRL");
+        final var brlAmount = Money.of(120, brl);
         log(brlAmount);
 
-        final CurrencyUnit usd = Monetary.getCurrency(Locale.US);
-        final MonetaryAmount usdAmount = FastMoney.of(120, usd);
+        final var usd = Monetary.getCurrency(Locale.US);
+        final var usdAmount = FastMoney.of(120, usd);
         log(usdAmount);
 
-        final MonetaryAmountFactoryQuery query10 = MonetaryAmountFactoryQueryBuilder.of()
+        final var query10 = MonetaryAmountFactoryQueryBuilder.of()
                 .setPrecision(10)
                 .build();
-        final MonetaryAmountFactory amountFactory10 = Monetary.getAmountFactory(query10);
-        final MonetaryAmount eurAmount = amountFactory10
+        final var amountFactory10 = Monetary.getAmountFactory(query10);
+        final var eurAmount = amountFactory10
                 .setCurrency("EUR")
                 .setNumber(120)
                 .create();
         log(eurAmount);
 
-        final MonetaryAmountFactoryQuery query20 = MonetaryAmountFactoryQueryBuilder.of()
+        final var query20 = MonetaryAmountFactoryQueryBuilder.of()
                 .setPrecision(20)
                 .build();
-        final MonetaryAmountFactory amountFactory20 = Monetary.getAmountFactory(query20);
-        final MonetaryAmount chfAmount = amountFactory20
+        final var amountFactory20 = Monetary.getAmountFactory(query20);
+        final var chfAmount = amountFactory20
                 .setCurrency("CHF")
                 .setNumber(120)
                 .create();

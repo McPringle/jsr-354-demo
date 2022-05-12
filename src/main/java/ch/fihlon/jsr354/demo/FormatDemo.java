@@ -17,26 +17,23 @@
  */
 package ch.fihlon.jsr354.demo;
 
-import org.javamoney.moneta.Money;
-
-import javax.money.MonetaryAmount;
-import javax.money.format.MonetaryAmountFormat;
-import javax.money.format.MonetaryFormats;
 import java.util.Locale;
+import javax.money.format.MonetaryFormats;
+import org.javamoney.moneta.Money;
 
 public class FormatDemo {
 
     public static void main(final String... args) {
 
-        final MonetaryAmount amount = Money.of(123.456, "EUR");
+        final var amount = Money.of(123.456, "EUR");
 
-        final MonetaryAmountFormat formatDE = MonetaryFormats.getAmountFormat(Locale.GERMANY);
+        final var formatDE = MonetaryFormats.getAmountFormat(Locale.GERMANY);
         System.out.println(formatDE.format(amount));
 
-        final MonetaryAmountFormat formatCH = MonetaryFormats.getAmountFormat(new Locale("de_CH"));
+        final var formatCH = MonetaryFormats.getAmountFormat(new Locale("de_CH"));
         System.out.println(formatCH.format(amount));
 
-        final MonetaryAmountFormat formatUS = MonetaryFormats.getAmountFormat(Locale.US);
+        final var formatUS = MonetaryFormats.getAmountFormat(Locale.US);
         System.out.println(formatUS.format(amount));
     }
 

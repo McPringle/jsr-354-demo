@@ -17,19 +17,19 @@
  */
 package ch.fihlon.jsr354.demo;
 
+import java.util.Locale;
 import javax.money.CurrencyUnit;
 import javax.money.Monetary;
-import java.util.Locale;
 
 public class CurrencyDemo {
 
     public static void main(final String... args) {
-        // Kuweit Dinar
-        final CurrencyUnit kwd = Monetary.getCurrency("KWD");
+        // Kuwait Dinar
+        final var kwd = Monetary.getCurrency("KWD");
         log(kwd);
 
         // Euro
-        final CurrencyUnit eur = Monetary.getCurrency(Locale.GERMANY);
+        final var eur = Monetary.getCurrency(Locale.GERMANY);
         log(eur);
     }
 

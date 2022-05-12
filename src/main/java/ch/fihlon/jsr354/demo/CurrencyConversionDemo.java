@@ -17,27 +17,24 @@
  */
 package ch.fihlon.jsr354.demo;
 
-import org.javamoney.moneta.Money;
-
-import javax.money.MonetaryAmount;
-import javax.money.convert.CurrencyConversion;
 import javax.money.convert.MonetaryConversions;
+import org.javamoney.moneta.Money;
 
 public class CurrencyConversionDemo {
 
     public static void main(final String... args) {
 
         // get the default CurrencyConversion
-        final CurrencyConversion dollarConversion = MonetaryConversions.getConversion("USD");
+        final var dollarConversion = MonetaryConversions.getConversion("USD");
 
         // create a monetary amount of 100 euro
-        final MonetaryAmount inEuro = Money.of(100, "EUR");
+        final var inEuro = Money.of(100, "EUR");
 
         // convert the euro amount to us dollar
-        final MonetaryAmount inDollar = inEuro.with(dollarConversion);
+        final var inDollar = inEuro.with(dollarConversion);
 
         // output
-        System.out.println(String.format("%s ≙ %s", inEuro, inDollar));
+        System.out.printf("%s ≙ %s%n", inEuro, inDollar);
     }
 
 }

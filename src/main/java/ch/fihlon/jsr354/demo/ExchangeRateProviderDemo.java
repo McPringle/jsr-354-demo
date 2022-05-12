@@ -17,10 +17,6 @@
  */
 package ch.fihlon.jsr354.demo;
 
-import org.javamoney.moneta.convert.ExchangeRateBuilder;
-import org.javamoney.moneta.spi.AbstractRateProvider;
-import org.javamoney.moneta.spi.DefaultNumberValue;
-
 import javax.money.CurrencyUnit;
 import javax.money.Monetary;
 import javax.money.convert.ConversionContextBuilder;
@@ -29,11 +25,14 @@ import javax.money.convert.ExchangeRate;
 import javax.money.convert.ProviderContext;
 import javax.money.convert.ProviderContextBuilder;
 import javax.money.convert.RateType;
+import org.javamoney.moneta.convert.ExchangeRateBuilder;
+import org.javamoney.moneta.spi.AbstractRateProvider;
+import org.javamoney.moneta.spi.DefaultNumberValue;
 
 public class ExchangeRateProviderDemo extends AbstractRateProvider {
 
-    private CurrencyUnit BRL = Monetary.getCurrency("BRL");
-    private CurrencyUnit EUR = Monetary.getCurrency("EUR");
+    private final CurrencyUnit brl = Monetary.getCurrency("BRL");
+    private final CurrencyUnit eur = Monetary.getCurrency("EUR");
 
     private static final ProviderContext CONTEXT = ProviderContextBuilder.of("DEMO", RateType.ANY)
             .set("providerDescription", "My really cool own exchange rate provider implementation.")
@@ -51,16 +50,16 @@ public class ExchangeRateProviderDemo extends AbstractRateProvider {
 
     @Override
     public ExchangeRate getExchangeRate(final ConversionQuery conversionQuery) {
-        final CurrencyUnit baseCurrency = conversionQuery.getBaseCurrency();
-        final CurrencyUnit currency = conversionQuery.getCurrency();
+        final var baseCurrency = conversionQuery.getBaseCurrency();
+        final var currency = conversionQuery.getCurrency();
 
-        if (baseCurrency.equals(BRL) && currency.equals(BRL))
+        if (baseCurrency.equals(brl) && currency.equals(brl))
             return createExchangeRate(baseCurrency, currency, 1);
-        if (baseCurrency.equals(EUR) && currency.equals(EUR))
+        if (baseCurrency.equals(eur) && currency.equals(eur))
             return createExchangeRate(baseCurrency, currency, 1);
-        if (baseCurrency.equals(BRL) && currency.equals(EUR))
+        if (baseCurrency.equals(brl) && currency.equals(eur))
             return createExchangeRate(baseCurrency, currency, 0.2663);
-        if (baseCurrency.equals(EUR) && currency.equals(BRL))
+        if (baseCurrency.equals(eur) && currency.equals(brl))
             return createExchangeRate(baseCurrency, currency, 3.7545);
 
         return null;

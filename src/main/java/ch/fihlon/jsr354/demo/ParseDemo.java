@@ -17,29 +17,28 @@
  */
 package ch.fihlon.jsr354.demo;
 
-import javax.money.MonetaryAmount;
+import java.util.Locale;
 import javax.money.MonetaryException;
 import javax.money.format.MonetaryAmountFormat;
 import javax.money.format.MonetaryFormats;
-import java.util.Locale;
 
 public class ParseDemo {
 
     public static void main(final String... args) {
         System.out.println("\n============================== Locale.GERMANY ==============================");
-        final MonetaryAmountFormat formatDE = MonetaryFormats.getAmountFormat(Locale.GERMANY);
+        final var formatDE = MonetaryFormats.getAmountFormat(Locale.GERMANY);
         test(formatDE, "123,46 EUR");
         test(formatDE, "EUR 123.46");
         test(formatDE, "EUR123.46");
 
         System.out.println("\n=================================== de_CH ==================================");
-        final MonetaryAmountFormat formatCH = MonetaryFormats.getAmountFormat(new Locale("de_CH"));
+        final var formatCH = MonetaryFormats.getAmountFormat(new Locale("de_CH"));
         test(formatCH, "123,46 EUR");
         test(formatCH, "EUR 123.46");
         test(formatCH, "EUR123.46");
 
         System.out.println("\n==================================== US ====================================");
-        final MonetaryAmountFormat formatUS = MonetaryFormats.getAmountFormat(Locale.US);
+        final var formatUS = MonetaryFormats.getAmountFormat(Locale.US);
         test(formatUS, "123,46 EUR");
         test(formatUS, "EUR 123.46");
         test(formatUS, "EUR123.46");
@@ -48,7 +47,7 @@ public class ParseDemo {
     private static void test(final MonetaryAmountFormat format,
                              final String text) {
         try {
-            final MonetaryAmount amount = format.parse(text);
+            final var amount = format.parse(text);
             System.out.println("Success: " + amount);
         } catch (final MonetaryException e) {
             System.err.println("Error: " + e.getMessage());

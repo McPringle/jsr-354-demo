@@ -17,28 +17,25 @@
  */
 package ch.fihlon.jsr354.demo;
 
-import org.javamoney.moneta.Money;
-
-import javax.money.CurrencyUnit;
 import javax.money.Monetary;
 import javax.money.MonetaryAmount;
-import javax.money.MonetaryRounding;
+import org.javamoney.moneta.Money;
 
 public class MonetaryRoundingDemo {
 
     public static void main(final String... args) {
-        final MonetaryAmount eurAmount1 = Money.of(22.435, "EUR");
-        final MonetaryAmount eurAmountRounded1 = round(eurAmount1);
+        final var eurAmount1 = Money.of(22.435, "EUR");
+        final var eurAmountRounded1 = round(eurAmount1);
         log(eurAmount1, eurAmountRounded1);
 
-        final MonetaryAmount eurAmount2 = Money.of(22.434999, "EUR");
-        final MonetaryAmount eurAmountRounded2 = round(eurAmount2);
+        final var eurAmount2 = Money.of(22.434999, "EUR");
+        final var eurAmountRounded2 = round(eurAmount2);
         log(eurAmount2, eurAmountRounded2);
     }
 
     private static MonetaryAmount round(final MonetaryAmount amount) {
-        final CurrencyUnit currency = amount.getCurrency();
-        final MonetaryRounding rounding = Monetary.getRounding(currency);
+        final var currency = amount.getCurrency();
+        final var rounding = Monetary.getRounding(currency);
         return rounding.apply(amount);
     }
 

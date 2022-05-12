@@ -17,21 +17,18 @@
  */
 package ch.fihlon.jsr354.demo;
 
-import javax.money.CurrencyUnit;
 import javax.money.Monetary;
-import javax.money.convert.ExchangeRate;
-import javax.money.convert.ExchangeRateProvider;
 import javax.money.convert.MonetaryConversions;
 
 public class ExchangeRateDemo {
 
     public static void main(final String... args) {
 
-        final CurrencyUnit brl = Monetary.getCurrency("BRL");
-        final CurrencyUnit eur = Monetary.getCurrency("EUR");
+        final var brl = Monetary.getCurrency("BRL");
+        final var eur = Monetary.getCurrency("EUR");
 
-        final ExchangeRateProvider rateProvider = MonetaryConversions.getExchangeRateProvider("DEMO");
-        final ExchangeRate exchangeRate = rateProvider.getExchangeRate(brl, eur);
+        final var rateProvider = MonetaryConversions.getExchangeRateProvider("DEMO");
+        final var exchangeRate = rateProvider.getExchangeRate(brl, eur);
 
         System.out.println("==============================");
         System.out.println("Exchange Rate: " + exchangeRate);
