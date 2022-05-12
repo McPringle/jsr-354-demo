@@ -30,7 +30,7 @@ repositories {
 
 dependencies {
     implementation (
-            'javax.money:money-api:1.0.3',
+            'javax.money:money-api:1.1',
             'org.javamoney:moneta:1.4.2'
     )
 }
