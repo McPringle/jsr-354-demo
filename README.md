@@ -1,8 +1,6 @@
 *JSR-354 Demo*
 ==============
 
-[![Build Status](https://travis-ci.org/McPringle/jsr-354-demo.svg?branch=master)](https://travis-ci.org/McPringle/jsr-354-demo)
-
 **Demo code for a talk about the Java Money and Currency API (JSR-354)**
 
 *Copyright (C) 2017 Marcus Fihlon*
